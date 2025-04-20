@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Payment</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='app/card.css')}}"> <!-- Link to the external CSS file -->
+</head>
+<body>
+
+    <form method="POST">
+        <div id="box">
+            <h2>Payment Details</h2>
+
+            <div class="form-section">
+                <label for="amount">Amount</label>
+                <input type="text" name="amount" value="{{ amount }}" readonly>
+            </div>
+
+            <div class="form-section">
+                <label for="cardnumber">Enter Card Number</label>
+                <input type="text" name="cardnumber" id="cardnumber" required>
+            </div>
+
+            <div class="form-section">
+                <label for="exp">Card Expiry Date</label>
+                <input type="date" name="exp" id="exp" required>
+            </div>
+
+            <div class="form-section">
+                <label for="cvv">CVV</label>
+                <input type="text" name="cvv" id="cvv" required>
+            </div>
+
+            <div class="form-section">
+                <label for="cardname">Card Holder's Name</label>
+                <input type="text" name="cardname" id="cardname" required>
+            </div>
+
+            <button type="submit">Pay</button>
+        </div>
+    </form>
+
+</body>
+</html>

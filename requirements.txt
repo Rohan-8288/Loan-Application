@@ -1,0 +1,5 @@
+flask
+sqllite3
+Flask-Mail
+razorpay
+setuptools

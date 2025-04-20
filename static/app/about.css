@@ -1,0 +1,134 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar nav {
+    display: flex;
+}
+
+.navbar .nav-link,
+.navbar .logout-btn {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin-left: 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .logout-btn:hover {
+    background-color: #575757;
+}
+
+/* About Section */
+.about-section {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-title {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.about-description {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.sub-heading {
+    font-size: 24px;
+    margin-top: 20px;
+    color: #333;
+}
+
+.about-list {
+    margin-top: 10px;
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.about-list li {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer .footer-link {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+footer .footer-link:hover {
+    color: #ddd;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navbar nav {
+        margin-top: 10px;
+        flex-direction: column;
+    }
+
+    .navbar .nav-link,
+    .navbar .logout-btn {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .about-section {
+        padding: 15px;
+    }
+}

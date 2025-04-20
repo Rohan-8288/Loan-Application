@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Sanctioned</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='app/loansanction.css') }}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/favicon.png') }}" alt="EasyLend Logo" style="height: 30px; vertical-align: middle; margin-right: 10px;">
+                EasyLend</div>
+            <a href="/logout" class="logout-btn">Logout</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Congratulations! You Got ₹{{ loanamt }} for {{ loantype }}</h1>
+        <h3>To Withdraw, Share Your Bank Details</h3>
+
+        <form method="post">
+            <label for="name">Account Holder Name</label>
+            <input type="text" name="name" id="name" required>
+
+            <label for="accno">Account Number</label>
+            <input type="text" name="accno" id="accno" required>
+
+            <label for="ifsc">IFSC Code</label>
+            <input type="text" name="ifsc" id="ifsc" required>
+
+            <input type="hidden" name="loanamt" value="{{loanamt}}">
+            <input type="hidden" name="loantype" value="{{loantype}}">
+
+            <button type="submit">Withdraw Money</button>
+        </form>
+    </div>
+</body>
+</html>

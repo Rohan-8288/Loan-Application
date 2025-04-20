@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyLend | Loan Types</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='app/loanHome.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1 class="logo">
+                <img src="{{ url_for('static', filename='images/favicon.png') }}" alt="EasyLend Logo" style="height: 30px; vertical-align: middle; margin-right: 10px;">
+                EasyLend
+            </h1>
+            <a href="/about" class="nav-link">About Us</a>
+            <a href="/contact" class="nav-link">Contact Us</a>
+            <a href="/logout" class="logout-btn">Logout</a>
+        </div>
+    </header>
+
+    <form method="post">
+    <main>
+        <h2 class="page-title">Choose Your Loan Type</h2>
+        <div class="loan-cards">
+
+            <div class="card" data-loan="Personal Loan">
+                <img src="static/images/personal-loan.png" alt="Personal Loan" class="loan">
+                <h3 class="loan">Personal Loan</h3>
+            </div>
+
+            <div class="card" data-loan="Home Loan">
+                <img src="static/images/home-loan.png" alt="Home Loan" class="loan">
+                <h3 class="loan">Home Loan</h3>
+            </div>
+
+            <div class="card" data-loan="Education Loan">
+                <img src="static/images/education-loan.png" alt="Education Loan" class="loan">
+                <h3 class="loan">Education Loan</h3>
+            </div>
+
+            <div class="card" data-loan="Car Loan">
+                <img src="static/images/car-loan.png" alt="Car Loan" class="loan">
+                <h3 class="loan">Car Loan</h3>
+            </div>
+
+        </div>
+    </main>
+</form>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 EasyLend. All rights reserved.</p>
+            <p>Made with ♥ by EasyLend Team</p>
+            <nav>
+                <a href="/about" class="footer-link">About Us</a> | 
+                <a href="/contact" class="footer-link">Contact Us</a> | 
+                <a href="#" class="footer-link">Privacy Policy</a>
+            </nav>
+        </div>
+    </footer>
+    
+
+    <script type="text/javascript">
+        $('.card').click(function(){
+            var selectedLoan= $(this).data('loan');
+            window.location.href ="/banks?loantype=" +encodeURIComponent(selectedLoan);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+</head>
+<body>
+    <center>
+        <form method="post" enctype="multipart/form-data">
+            <table border="1">
+                <tr><td>Upload Logo Of Bank</td></tr>
+                <tr><td><input type="file" name="logo"></td></tr>
+
+                <tr><td>Enter Bank Name</td></tr>
+                <tr><td><input type="text" name="bname"></td></tr>
+
+                <tr><td><input type="submit" value="Add Bank"></td></tr>
+            </table>
+        </form>
+    </center>
+</body>
+</html>

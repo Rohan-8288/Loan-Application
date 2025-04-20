@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Repayment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='app/repay.css') }}">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/favicon.png') }}" alt="EasyLend Logo">
+                EasyLend
+            </div>
+            <a href="/logout" class="logout-btn">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="box">
+            <h2>Loan Repayment Details</h2>
+
+            <!-- <form method="get" action="/carddetails"> -->
+
+                <form action="/verify_payment" method="POST">
+                <label for="bname">Bank Name</label>
+                <input type="text" name="bname" value="{{ bname }}" id="bname" readonly>
+
+                <label for="loantype">Loan Type</label>
+                <input type="text" name="loantype" id="loantype" value="{{ loantype }}" readonly>
+
+                <label for="amount">Amount To Pay</label>
+                <input type="text" name="amount" value="{{ amount }}" id="amount" readonly>
+
+                
+                    <script src="https://checkout.razorpay.com/v1/checkout.js"
+                            data-key="rzp_test_EQcdLLLhDGxxyz"  
+                            data-amount="{{ payment.amount }}"
+                            data-currency="INR"
+                            data-order-id="{{ payment.id }}"
+                            data-buttontext="Pay with Razorpay"
+                            data-name="EasyLend"
+                            data-description="Test Transaction"
+                            data-theme.color="#528FF0">
+                    </script>
+                    <input type="hidden" name="hidden">
+            </form>
+        </div>
+    </main>
+
+</body>
+</html>

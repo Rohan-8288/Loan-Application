@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Banks</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='app/banks.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1 class="logo">
+                <img src="{{ url_for('static', filename='images/favicon.png') }}" alt="EasyLend Logo" style="height: 30px; vertical-align: middle; margin-right: 10px;">
+                EasyLend</h1>
+            <a href="/logout" class="logout-btn">Logout</a>
+        </div>
+    </header>
+
+    <main class="content">
+        <h2 class="section-title">Available Banks</h2>
+        <div class="bank-container">
+            {% for bank in data %}
+            <div class="bank-card" data-id="{{ bank[0] }}">
+                <img src="{{ url_for('static', filename=bank[1]) }}" alt="{{ bank[2] }}" class="bank-image">
+                <h3 class="bank-name">{{ bank[2] }}</h3>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+
+    <script type="text/javascript">
+        $('.bank-card').click(function(){
+            const bankId = $(this).data('id');
+            window.location.href = "/application/" + bankId;
+        });
+    </script>
+    
+</body>
+</html>
+

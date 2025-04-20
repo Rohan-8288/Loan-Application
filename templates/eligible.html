@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employment Details</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f2f6fc;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 30px;
+            margin: 0;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 700px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .radio-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .radio-group label {
+            font-weight: 500;
+        }
+
+        .sub-form {
+            display: none;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🎓 Employment Details</h2>
+    <form method="post" action="/employment">
+        <div class="form-group">
+            <label>Select Employment Type:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="employment_type" value="Student"> Student</label>
+                <label><input type="radio" name="employment_type" value="Self-Employed"> Self-Employed</label>
+                <label><input type="radio" name="employment_type" value="Salaried"> Salaried</label>
+            </div>
+        </div>
+
+        <!-- Student Form -->
+        <div class="sub-form" id="student-form">
+            <div class="form-group">
+                <label for="college">College Name</label>
+                <input type="text" name="college" id="college">
+            </div>
+            <div class="form-group">
+                <label for="course">Course</label>
+                <input type="text" name="course" id="course">
+            </div>
+            <div class="form-group">
+                <label for="year">Year of Study</label>
+                <select name="year" id="year">
+                    <option>1st Year</option>
+                    <option>2nd Year</option>
+                    <option>3rd Year</option>
+                    <option>4th Year</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Self-Employed Form -->
+        <div class="sub-form" id="self-form">
+            <div class="form-group">
+                <label for="business">Business Name</label>
+                <input type="text" name="business" id="business">
+            </div>
+            <div class="form-group">
+                <label for="income">Annual Income</label>
+                <input type="text" name="income" id="income">
+            </div>
+        </div>
+
+        <!-- Salaried Form -->
+        <div class="sub-form" id="salaried-form">
+            <div class="form-group">
+                <label for="company">Company Name</label>
+                <input type="text" name="company" id="company">
+            </div>
+            <div class="form-group">
+                <label for="position">Job Title</label>
+                <input type="text" name="position" id="position">
+            </div>
+            <div class="form-group">
+                <label for="salary">Monthly Salary</label>
+                <input type="text" name="salary" id="salary">
+            </div>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+    const radios = document.querySelectorAll('input[name="employment_type"]');
+    const studentForm = document.getElementById('student-form');
+    const selfForm = document.getElementById('self-form');
+    const salariedForm = document.getElementById('salaried-form');
+
+    radios.forEach(radio => {
+        radio.addEventListener('change', () => {
+            studentForm.style.display = 'none';
+            selfForm.style.display = 'none';
+            salariedForm.style.display = 'none';
+
+            if (radio.value === 'Student') {
+                studentForm.style.display = 'block';
+            } else if (radio.value === 'Self-Employed') {
+                selfForm.style.display = 'block';
+            } else if (radio.value === 'Salaried') {
+                salariedForm.style.display = 'block';
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
