@@ -15,9 +15,9 @@ app.config['MAIL_SERVER'] = 'smtp.gmail.com'  # Or use any SMTP service
 app.config['MAIL_PORT'] = 587  # For Gmail
 app.config['MAIL_USE_TLS'] = True  # Enable TLS
 app.config['MAIL_USE_SSL'] = False  # Disable SSL
-app.config['MAIL_USERNAME'] = 'rj84716@gmail.com'  # Your email address
-app.config['MAIL_PASSWORD'] = 'yvvuhyjguckcbysz'  # Your email password
-app.config['MAIL_DEFAULT_SENDER'] = 'rj84716@@gmail.com'
+app.config['MAIL_USERNAME'] = ''  # Your email address
+app.config['MAIL_PASSWORD'] = ''  # Your email password
+app.config['MAIL_DEFAULT_SENDER'] = ''
 
 mail=Mail(app)
 
