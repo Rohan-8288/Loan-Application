@@ -16,9 +16,11 @@ def repay(request):
                 bname=data[1]
                 loantype=data[2]
                 amount=data[3]
-                client=razorpay.Client(auth=("rzp_test_EQcdLLLhDGxxyz","RvoLosmtN5LnL2vCm8LjCadu"))
+                key=""  #Enter razorpay key
+                code="" #Enter razorpay secrate code
+                client=razorpay.Client(auth=(key,code))
                 payment=client.order.create({'amount':int(amount)*100,'currency':'INR','payment_capture':'1'})
-                return render_template('repay.html',bname=bname,loantype=loantype,amount=amount,payment=payment)
+                return render_template('repay.html',bname=bname,loantype=loantype,amount=amount,payment=payment,key=key)
         except:
             return "User Not Have Any Active Loans"
     else:
